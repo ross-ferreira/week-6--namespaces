@@ -14,3 +14,37 @@ $sayHi = new Hello();
 
 dump($sayHi->hello("Orb")); // "Hello Orb"
 dump($sayHi->hello("Horse")); // "Hello Horse"
+
+// Create a class Person in the App namespace. It should accept a first and last name on creation. It should have a sayHelloTo() method that takes another Person and says hello to them. Make sure your properties are all private: so you'll need to a create fullName() method too.
+
+// Use the class as follows in your index.php:
+
+echo "\nQuestion 2\n";
+
+use App\Person;
+
+$person1 = new Person("Lynne",  "Ramsay");
+$person2 = new Person("Wes", "Anderson");
+
+dump($person1->sayHelloTo($person2)); // string(9) "Hello Wes Anderson"
+dump($person2->sayHelloTo($person1)); // string(11) "Hello Lynne Ramsay"
+
+// Create a class Potato in the App\Stuff\Things namespace. It should have a water() and hasGrown() method. hasGrown() should return false until the Potato has been watered five or more times.
+
+echo "\nQuestion 3:\n";
+
+use App\Stuff\Things\Potato;
+
+$potato = new Potato();
+$potato->water()->water();
+
+dump($potato->hasGrown()); // false
+
+$potato->water()->water();
+dump($potato->hasGrown()); // false
+
+$potato->water();
+dump($potato->hasGrown()); // true
+
+$potato->water()->water();
+dump($potato->hasGrown()); // true
